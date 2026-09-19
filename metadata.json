@@ -1,0 +1,6 @@
+{
+  "name": "PhishGuard",
+  "description": "Phishing Detection & Online Safety Platform for analyzing suspicious URLs, emails, and messages.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
