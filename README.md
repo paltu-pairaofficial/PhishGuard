@@ -1,20 +1,19 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# PhishGuard — Phishing Detection & Online Safety Platform
 
-# Run and deploy your AI Studio app
+PhishGuard is a full-stack cybersecurity web application for detecting suspicious URLs, emails, and messages.
 
-This contains everything you need to run your app locally.
+It combines rule-based analysis with external security intelligence services.
 
-View your app in AI Studio: https://ai.studio/apps/e240908f-328d-4f0e-95eb-1692ce4456c0
+The application uses React, Vite, Tailwind CSS, Node.js, and Express.js.
 
-## Run Locally
+Supabase PostgreSQL is used for secure application data storage.
 
-**Prerequisites:**  Node.js
+Google Safe Browsing and VirusTotal provide external threat intelligence.
 
+Users can scan URLs, analyze messages, view scan history, and submit threat reports.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The Safety Awareness section helps users learn how to recognize phishing attacks.
+
+### Run Locally
+
+Install dependencies with `npm install`, then configure the required `.env` variables and run `npm run dev`.
