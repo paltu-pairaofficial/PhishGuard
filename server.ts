@@ -67,9 +67,9 @@ function requireAdmin(req: AuthenticatedRequest, res: Response, next: NextFuncti
   next();
 }
 
-/* ============================================================
+/* 
    AUTHENTICATION ENDPOINTS
-============================================================ */
+*/
 
 app.post('/api/auth/register', async (req: Request, res: Response) => {
   try {
@@ -187,9 +187,9 @@ app.get('/api/auth/me', authenticateToken, async (req: AuthenticatedRequest, res
   }
 });
 
-/* ============================================================
+/* 
    SCANNING & RISK ANALYSIS ENDPOINTS
-============================================================ */
+ */
 
 app.post('/api/scan/url', optionalAuth, async (req: AuthenticatedRequest, res: Response) => {
   const { url } = req.body;
@@ -258,9 +258,9 @@ app.post('/api/scan/message', optionalAuth, async (req: AuthenticatedRequest, re
   }
 });
 
-/* ============================================================
+/* 
    SCAN HISTORY ENDPOINTS
-============================================================ */
+ */
 
 app.get('/api/history', authenticateToken, async (req: AuthenticatedRequest, res: Response) => {
   try {
@@ -349,9 +349,9 @@ app.delete('/api/history', authenticateToken, async (req: AuthenticatedRequest, 
   }
 });
 
-/* ============================================================
+/* 
    THREAT REPORTS ENDPOINTS
-============================================================ */
+ */
 
 app.get('/api/reports', authenticateToken, async (req: AuthenticatedRequest, res: Response) => {
   try {
@@ -412,9 +412,9 @@ app.patch('/api/reports/:id', authenticateToken, requireAdmin, async (req: Authe
   }
 });
 
-/* ============================================================
+/* 
    ADMIN MANAGEMENT ENDPOINTS
-============================================================ */
+ */
 
 app.get('/api/admin/users', authenticateToken, requireAdmin, async (req: AuthenticatedRequest, res: Response) => {
   try {
@@ -531,9 +531,9 @@ app.delete('/api/admin/keywords/:id', authenticateToken, requireAdmin, async (re
   }
 });
 
-/* ============================================================
+/* 
    FRONTEND VITE INTEGRATION & SERVER STARTUP
-============================================================ */
+*/
 
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
@@ -555,4 +555,10 @@ async function startServer() {
   });
 }
 
-startServer();
+if (process.env.VERCEL) {
+  // Vercel imports the Express app through api/index.ts
+} else {
+  startServer();
+}
+
+export default app;
